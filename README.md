@@ -58,7 +58,7 @@ Launch the following command to start the application:
         ├── config.jest.js
         ├── config.local.js
         ├── config.prod.js
-    ├── Demo                        # Main template
+    ├── Demo                        # Demo template
         ├── index.pug
     ├── scripts                     # Webpack setup for differents enviroments
         ├── webpack.analyse.js
@@ -68,7 +68,7 @@ Launch the following command to start the application:
         ├── webpack.prod.js
     ├── src
         ├── assets                  # Images, fonts and others media
-        ├── polyfills            # Polyfills configuration
+        ├── polyfills               # Polyfills configuration
         ├── component.js            # Component code
         ├── component.spec          # Component unit testing
         ├── component.e2e           # Component end to end testing
@@ -88,19 +88,17 @@ You can set up constants to use in base the enviroment. There is a directory cal
 
 ```sh
     //File: config/config.local.js
-
     module.exports = {
-    message: 'This message arrive from config/local.config.js'
+        message: 'This message arrive from config/local.config.js'
     };
 
     //File: src/component.js
-
     import config from 'config';
 
     export default class Component {
-    constructor(selector) {
-        this.myEl = document.querySelector(selector);
-        this.message = config.message;
+        constructor(selector) {
+            this.myEl = document.querySelector(selector);
+            this.message = config.message;
 
 ```
 
