@@ -26,16 +26,14 @@ To launch the application you need to install the followings applications:
 - [Yarn](https://yarnpkg.com/lang/en/)
 
 ```sh
-$ npm install -g yarn
+    npm install -g yarn
 ```
-
-:warning: **NB: After installed yarn you mustn't use npm to install dependencies or launch automated tasks.** :warning:
 
 ## Getting Started
 Launch the following command to start the application:
 
 ```sh
-$ yarn start
+    yarn start
 ```
 
 ## Commands Available:
@@ -60,9 +58,7 @@ $ yarn start
         ├── config.jest.js
         ├── config.local.js
         ├── config.prod.js
-    ├── fixtures                    # Main template
-        ├── data
-            ├── example.json
+    ├── Demo                        # Main template
         ├── index.pug
     ├── scripts                     # Webpack setup for differents enviroments
         ├── webpack.analyse.js
@@ -72,14 +68,13 @@ $ yarn start
         ├── webpack.prod.js
     ├── src
         ├── assets                  # Images, fonts and others media
+        ├── polyfills            # Polyfills configuration
         ├── component.js            # Component code
         ├── component.spec          # Component unit testing
         ├── component.e2e           # Component end to end testing
         ├── component.scss          # Component styles
         ├── component.pug           # Component template
         ├── index.js                # Bootstrap of the applicaton
-        ├── routes.js               # Routes configuration
-        ├── polyfills.js            # Polyfills configuration
     ├── babel.config.js             # Babel setup
     ├── .eslintignore               # Specifies files to ignore for Eslint
     ├── .eslintrc                   # Eslint setup
@@ -92,24 +87,21 @@ $ yarn start
 You can set up constants to use in base the enviroment. There is a directory called **config** where you can find 4 files one for every enviroment available. Below you can see an example:
 
 ```sh
-$ File: config/config.local.js
-$
-$ module.exports = {
-$  build: {
-$    entryPublicPath: ''
-$  },
-$  message: 'This message arrive from config/local.config.js'
-$ };
-$
-$ File: src/component.js
-$
-$ import config from 'config';
-$
-$ export default class Component {
-$  constructor(selector) {
-$    this.myEl = document.querySelector(selector);
-$    this.message = config.message;
-$
+    //File: config/config.local.js
+
+    module.exports = {
+    message: 'This message arrive from config/local.config.js'
+    };
+
+    //File: src/component.js
+
+    import config from 'config';
+
+    export default class Component {
+    constructor(selector) {
+        this.myEl = document.querySelector(selector);
+        this.message = config.message;
+
 ```
 
 ## Unit Testing
@@ -117,19 +109,19 @@ For Unit Testing we use [Jest](https://facebook.github.io/jest/) because is easy
 
 Launch unit testing
 ```sh
-$ yarn test
+    yarn test
 ```
 
 Launch Code Coverage Test
 ```sh
-$ yarn test:coverage
+    yarn test:coverage
 ```
 
 ## E2E Testing
 For E2E testing we use [Cypress](https://docs.cypress.io/guides/overview/why-cypress.html#In-a-Nutshell). Enable E2E testing:
 
 ```sh
-$ yarn e2e
+    yarn e2e
 ```
 
 ## Development
@@ -137,7 +129,7 @@ In development enviroment we generate an unminified version of css and javascrip
 To generate a build for develpment you have to launch the following command:
 
 ```sh
-$ yarn dev
+    yarn dev
 ```
 
 ## Production
@@ -145,55 +137,46 @@ In production we generate a minified version of css and javascript.
 To generate a build for production you have to launch the following command:
 
 ```sh
-$ yarn prod
+    yarn prod
 ```
 
 ## Integration
-Below you can find an example of a component integration.
 
-- **Step1**: The first step is include the script generated.
+- **Step1**:
 ```sh
-$ <script src="https://my-component/v2/index.min.js"></script>
+    <script nomodule src="https://my-component/v2/index.legacy.min.js"></script>
+    <script type="module" src="https://my-component/v2/index.min.js"></script>
 ```
 
-- **Step2**: Add the html of your component. You have to use an id or a class selector.
+- **Step2**:
 If you need to pass params across the component you can use data attributes.
 ```sh
-$ <div id="my-selector" data-title="My title" data-href="https://some-link.com"><div>
+    <div id="my-selector" data-title="My title" data-href="https://some-link.com"><div>
 ```
 
-- **Step3**: To render the component, follow this syntax:
+- **Step3**:
 ```sh
-$ var myComponent = new MyComponent("#my-selector");
-$ myComponent.render();
+    var myComponent = new MyComponent("#my-selector");
+    myComponent.render();
 ```
-
-## Javascript Guidelines
-In this application we use [Eslint](https://eslint.org/) to have an standard when write Javascript. The only thing that you need is download [Visual Studio Code](https://code.visualstudio.com/) and then install from marketplace the plugin eslint.
-
-You can launch the following task to fix eslint errors:
-```sh
-$ yarn pretest
-```
-
-:warning: **NB: It's important to fix warnings from console before commit changes** :warning:
 
 ## Documentation
-Write code is amazing but write the documentation is important and useful for others developers.
-For this reason we support [documentation](http://documentation.js.org/) a tool that use the [JSDoc](http://usejsdoc.org/) format. Launch the following command to generate the documentation for this application.
+We support [documentation](http://documentation.js.org/) a tool that use the [JSDoc](http://usejsdoc.org/) format. Launch the following command to generate the documentation for this application.
 
 ```sh
-$ yarn docs
+    yarn docs
 ```
 
 ## Polyfills
-ES6 is awesome because introduce useful features like includes, values, keys, but the features aren't available in all browsers. 
-In this project the polyfills will be loaded at runtime. For example if you're surfing on Chrome the polyfill library isn't necessary. Below you can check the features supported:
+Features supported:
 
 - Generics
     - Symbol
     - fetch
     - Promise
+    - IntersectionObserver
+    - CustomEvents
+    - Async / Await
 
 - Arrays
     - entries
