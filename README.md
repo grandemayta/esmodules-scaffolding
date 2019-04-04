@@ -86,7 +86,7 @@ Launch the following command to start the application:
 ## Enviroments Constants
 You can set up constants to use in base the enviroment. There is a directory called **config** where you can find 4 files one for every enviroment available. Below you can see an example:
 
-```sh
+```javascript
     //File: config/config.local.js
     module.exports = {
         message: 'This message arrive from config/local.config.js'
@@ -141,19 +141,19 @@ To generate a build for production you have to launch the following command:
 ## Integration
 
 - **Step1**:
-```sh
+```javascript
     <script nomodule src="https://my-component/v2/index.legacy.min.js"></script>
     <script type="module" src="https://my-component/v2/index.min.js"></script>
 ```
 
 - **Step2**:
 If you need to pass params across the component you can use data attributes.
-```sh
+```html
     <div id="my-selector" data-title="My title" data-href="https://some-link.com"><div>
 ```
 
 - **Step3**:
-```sh
+```javascript
     var myComponent = new MyComponent("#my-selector");
     myComponent.render();
 ```
