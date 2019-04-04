@@ -144,8 +144,8 @@ To generate a build for production you have to launch the following command:
 
 - **Step1**:
 ```html
-    <script nomodule src="https://my-component/v2/index.legacy.min.js"></script>
-    <script type="module" src="https://my-component/v2/index.min.js"></script>
+    <script nomodule src="https://my-component/v1/index.legacy.min.js"></script>
+    <script type="module" src="https://my-component/v1/index.min.js"></script>
 ```
 
 - **Step2**:
