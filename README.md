@@ -143,7 +143,7 @@ To generate a build for production you have to launch the following command:
 ## Integration
 
 - **Step1**:
-```javascript
+```html
     <script nomodule src="https://my-component/v2/index.legacy.min.js"></script>
     <script type="module" src="https://my-component/v2/index.min.js"></script>
 ```
