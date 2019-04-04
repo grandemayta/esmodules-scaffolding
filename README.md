@@ -99,6 +99,8 @@ You can set up constants to use in base the enviroment. There is a directory cal
         constructor(selector) {
             this.myEl = document.querySelector(selector);
             this.message = config.message;
+        }
+    }
 
 ```
 
