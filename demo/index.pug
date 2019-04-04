@@ -1,0 +1,17 @@
+//- USE THIS PAGE ONLY TO TEST YOUR COMPONENT
+//- THIS CODE WILL NOT INCLUDE IN THE FINAL BUILD
+doctype html
+html
+    head
+        title MyComponent
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    body
+        app-card(id="root", 
+                 data-title="Start code from here with Vanilla Javascript!", 
+                 data-href="https://developer.mozilla.org/en-US/docs/Web/JavaScript")
+        script.
+            window.addEventListener('load', () => {
+                const myComponent = new MyComponent('#root');
+                myComponent.render();
+            });
